@@ -1,0 +1,29 @@
+POWERHOUSE — Ampliación simétrica RED / BLU
+
+Blender: D:/JhampoDev/tf2/blender/Powerhouse.blend
+Unity: Assets/Powerhouse/Scenes/Powerhouse.unity
+Prefab: Assets/Powerhouse/Prefabs/Powerhouse_Expanded.prefab
+
+La sala inicial conserva su planta y sus accesos principales. Se elevó la zona
+superior de los edificios y se amplió el patio central un 22 % horizontalmente.
+
+Cada ala añade, con iguales medidas y recorridos:
+1. Sala técnica: escalera central, plataforma elevada, tuberías y tapas de inspección.
+2. Lanzamiento de cohetes: sala de 26 x 26 m, punto visual y galería en segundo piso.
+3. Patio de servicio abierto: conexión directa de 16 m hacia la base.
+4. Base de equipo: sala de 18 x 22 m con fachada y carteles RED / BLU.
+
+También incluye dos escaleras transitables a la plataforma de las compuertas,
+un tramo de río que serpentea hacia un desfiladero y montañas mayores.
+Las cercas laterales se desplazaron fuera de las habitaciones nuevas.
+
+Pruebas realizadas con el controlador real de Unity: recorrido desde el acceso
+de la sala inicial hasta cada base, ascenso a ambas galerías, acceso y ascenso
+a las dos escaleras de las compuertas, y suelo del punto de aparición.
+
+Copias previas conservadas:
+Blender: Powerhouse_BeforeExpansion.blend
+Unity: Assets/Powerhouse/Scenes/Powerhouse_BeforeExpansion.unity
+
+Los puntos de control siguen siendo elementos visuales del mapa. No se ha añadido
+lógica de captura, lanzamiento de cohetes ni selección de facción.

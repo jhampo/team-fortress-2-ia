@@ -1,0 +1,24 @@
+POWERHOUSE — Integración en Unity
+
+Proyecto: D:/JhampoDev/tf2/unitygame/tf2
+Escena: Assets/Powerhouse/Scenes/Powerhouse.unity
+Mapa reutilizable: Assets/Powerhouse/Prefabs/Powerhouse.prefab
+Original editable: D:/JhampoDev/tf2/blender/Powerhouse.blend
+
+El mapa se ha añadido como primera escena de Build Settings. La escena anterior
+Assets/FpsStage2/Scenes/FourClass_Test.unity se conserva sin reemplazar.
+
+Incluye las cuatro clases existentes, colisiones de terreno/edificios/obstáculos,
+agua con desplazamiento de textura, iluminación, cielo y punto de aparición.
+Los materiales de Blender se han adaptado a URP; no se trasladan sus nodos literalmente.
+El punto de control es visual: no se ha añadido lógica de captura ni enemigos.
+
+Controles: WASD mover, ratón mirar, clic izquierdo disparar, clic derecho giro Heavy,
+R recargar, coma cambiar clase, Espacio saltar (Scout doble), CTRL agacharse, ESC cursor.
+
+Verificado en Play: suelo de aparición, ambos caminos, plataforma central, ambas
+rampas laterales, disparo de las cuatro clases, doble salto y reaparición.
+El jugador reaparece ahora en su posición inicial de escena, no en (0,0,0).
+
+Los meshes y materiales son assets nativos de Unity. Para jugar no es necesario
+tener Blender abierto ni disponer del archivo temporal de transferencia JSON.

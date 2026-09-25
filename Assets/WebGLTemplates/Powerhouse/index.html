@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#242321">
+  <meta name="description" content="Powerhouse: combate RED contra BLU en una central hidroeléctrica.">
+  <title>Powerhouse</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#242321;color:#ede3cc;font-family:Arial,sans-serif}
+    #unity-canvas{display:block;width:100%;height:100%;outline:none;background:#242321}
+    #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 20%,#494439,#22211f 75%);z-index:2}
+    .panel{width:min(540px,88vw);text-align:center}.eyebrow{letter-spacing:.3em;color:#c6b698;font-size:12px}
+    h1{font-size:clamp(36px,7vw,68px);letter-spacing:-.04em;margin:18px 0;font-weight:900}.teams{height:5px;display:flex;margin-bottom:32px}.red{background:#b54734;width:50%}.blu{background:#507a8e;width:50%}
+    #status{font-size:17px;margin:16px 0}.track{height:10px;background:#131513;border-radius:3px;overflow:hidden}#progress{height:100%;width:0;background:#d9c398;transition:width .15s}
+    .hint{font-size:13px;line-height:1.6;color:#bfb6a7;margin-top:24px}#error{display:none;color:#ffd5c8;white-space:pre-wrap;overflow-wrap:anywhere;max-height:36vh;overflow:auto;font-size:13px}
+    #fullscreen{position:fixed;right:12px;bottom:12px;z-index:1;background:#242321cc;border:1px solid #b7ab95;color:#ede3cc;border-radius:4px;padding:9px 12px;cursor:pointer;font-size:12px;display:none}
+    #fullscreen:focus-visible{outline:2px solid white}body.locked #fullscreen{display:none!important}
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1" aria-label="Powerhouse, juego de combate en primera persona"></canvas>
+  <div id="loading" role="status" aria-live="polite">
+    <div class="panel">
+      <div class="eyebrow">RED / BLU · CONTROL DE PUNTOS</div>
+      <h1>POWERHOUSE</h1><div class="teams"><span class="red"></span><span class="blu"></span></div>
+      <div id="status">Preparando el juego…</div><div class="track"><div id="progress"></div></div>
+      <p class="hint">Juega en un ordenador con teclado y ratón.<br>La primera carga puede tardar; las siguientes usan la caché del navegador.</p>
+      <pre id="error"></pre>
+    </div>
+  </div>
+  <button id="fullscreen" type="button" aria-label="Activar pantalla completa">Pantalla completa</button>
+  <script src="performance.js"></script>
+  <script>
+    const canvas=document.getElementById('unity-canvas');
+    const loading=document.getElementById('loading');
+    const statusText=document.getElementById('status');
+    let unityInstance;
+    function showError(message){loading.style.display='flex';statusText.textContent='No se pudo iniciar el juego';const error=document.getElementById('error');error.style.display='block';error.textContent=String(message);}
+    if(location.protocol==='file:'){
+      showError('Abre el juego desde un servidor web HTTP/HTTPS, no haciendo doble clic en index.html. Consulta PUBLICAR.md.');
+    }else{
+      const config={
+        dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',
+        streamingAssetsUrl:'StreamingAssets',companyName:'{{{ COMPANY_NAME }}}',productName:'{{{ PRODUCT_NAME }}}',productVersion:'{{{ PRODUCT_VERSION }}}',
+        // Keep browser HiDPI/4K displays from multiplying the WebGL workload.
+        devicePixelRatio:Math.min(1,1600/window.innerWidth,900/window.innerHeight),
+        showBanner:(message,type)=>{if(type==='error')showError(message);else console.warn(message);}
+      };
+      const script=document.createElement('script');script.src='Build/{{{ LOADER_FILENAME }}}';
+      script.onerror=()=>showError('No se ha encontrado el cargador. Publica la carpeta completa, incluyendo Build.');
+      script.onload=()=>createUnityInstance(canvas,config,progress=>{
+        document.getElementById('progress').style.width=(progress*100)+'%';
+        statusText.textContent=progress<.9?'Cargando Powerhouse · '+Math.round(progress*100)+'%':'Iniciando el escenario…';
+      }).then(instance=>{
+        unityInstance=instance;loading.style.display='none';document.getElementById('fullscreen').style.display='block';canvas.focus();
+      }).catch(showError);
+      document.body.appendChild(script);
+    }
+    document.getElementById('fullscreen').addEventListener('click',()=>unityInstance&&unityInstance.SetFullscreen(1));
+    document.addEventListener('pointerlockchange',()=>document.body.classList.toggle('locked',!!document.pointerLockElement));
+    canvas.addEventListener('contextmenu',event=>event.preventDefault());
+  </script>
+</body>
+</html>

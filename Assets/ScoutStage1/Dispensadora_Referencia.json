@@ -1,0 +1,21 @@
+{
+  "nombre": "Dispensadora de Caña",
+  "estado": "Referencia de diseño; solo timings y animaciones implementados en esta etapa",
+  "tipo_disparo": "Registro de impacto",
+  "tipo_dano": "Balas",
+  "alcance_tipo": "Distancia",
+  "dano_base_perdigon": 5.4,
+  "aumento_maximo_perdigon": 9.45,
+  "aumento_maximo_porcentaje": 175,
+  "disminucion_maxima_perdigon": 2.8512,
+  "disminucion_maxima_porcentaje": 52.8,
+  "perdigones_por_disparo": 12,
+  "dano_quemarropa": [9, 113],
+  "dano_distancia_media": [5, 65],
+  "dano_larga_distancia": [3, 34],
+  "dispersion": "30:1",
+  "critico_perdigon": 16.2,
+  "minicritico_perdigon": [7.29, 12.76],
+  "intervalo_disparo_segundos": 0.3125,
+  "recarga_segundos": 1.4333
+}

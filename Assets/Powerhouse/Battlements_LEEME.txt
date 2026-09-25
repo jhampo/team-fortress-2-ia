@@ -1,0 +1,26 @@
+POWERHOUSE — Corrección de apoyos y distribución Battlements
+
+Archivos actuales:
+D:/JhampoDev/tf2/blender/Powerhouse.blend
+Unity: Assets/Powerhouse/Scenes/Powerhouse.unity
+Prefab: Assets/Powerhouse/Prefabs/Powerhouse_Battlements.prefab
+
+Cambios:
+- Terreno exterior continuo y cimentaciones de concreto bajo salas elevadas.
+- Sala inicial ensanchada un 25 % en profundidad y un 22 % transversalmente.
+- Sala técnica un 28 % más ancha; lanzamiento y base un 25 % más anchos.
+- Recorrido desplazado: técnica +4 m lateral, lanzamiento -6 m, base +6 m.
+- Nueva sala Battlements entre técnica y lanzamiento, anterior al punto y a la base.
+  Planta achaflanada, ventanas altas, claraboya, techo industrial, plataforma,
+  barriles, carretes, equipo de servicio y pasos principales despejados.
+- Cuatro camiones, ocho contenedores azules y grupos de carga en exteriores.
+- Muros perimetrales visibles, colisiones de protección en ventanas y continuidad
+  del terreno bajo el cauce para evitar caídas al vacío.
+
+Pruebas con el controlador del juego: ambos recorridos completos de ida y vuelta,
+galerías superiores, compuertas, muros laterales y muestreo del suelo exterior.
+No se modificaron las armas ni se añadieron reglas de captura.
+
+Copias anteriores conservadas:
+Blender: Powerhouse_BeforeBattlements.blend
+Unity: Assets/Powerhouse/Scenes/Powerhouse_BeforeBattlements.unity
