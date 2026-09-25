@@ -22,24 +22,3 @@ Esta copia no incluye ejecutables, Library, logs, configuraciones personales, vi
 ## Controles
 
 WASD: movimiento; Espacio: salto; Ctrl: agacharse; clic izquierdo: disparar; R: recargar; clic derecho: giro del Heavy o aire comprimido del Pyro; coma: elegir clase; TAB: marcador; ESC: opciones/menu.
-
-## Subir a GitHub
-
-Desde esta carpeta, usando Git o GitHub Desktop, crea el primer commit y publica en `https://github.com/jhampo/team-fortress-2-ia.git`. La copia ya incluye `.gitignore` y `.gitattributes`. No se ha realizado ninguna subida ni se han guardado credenciales.
-
-La carpeta ocupa aproximadamente 1,23 GB y contiene cerca de 9900 archivos. Utiliza Git o GitHub Desktop, no la carga manual de archivos desde el navegador. El archivo individual mas grande ronda los 39,5 MB. En esta copia no se han configurado filtros Git LFS.
-
-Si usas Git:
-
-```sh
-git init
-git add .
-git commit -m "Initial Unity project"
-git branch -M main
-git remote add origin https://github.com/jhampo/team-fortress-2-ia.git
-git push -u origin main
-```
-
-## Recursos y derechos
-
-Proyecto de aficionados inspirado en Team Fortress 2. Los recursos de terceros conservan los derechos de sus autores; esta copia no concede una licencia para redistribuirlos. Revisa los permisos antes de publicar el repositorio. Se mantienen los creditos y la procedencia de audio en `Assets/ControlPoints/AUDIO_SOURCES.json` y `AUDIO_README.md`.
